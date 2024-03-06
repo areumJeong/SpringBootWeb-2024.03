@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller; 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -90,5 +91,13 @@ public class BasicController {
 		   return "exercise/loginResult";
 		   
 	   }
+   }
+   
+// bid에 값이 없으면 매핑안됨         
+   @GetMapping(value={"/path/{uid}/{bid}", "/path/{uid}"}) // 2가지 경우를 다 받아드리겠다 
+   @ResponseBody // 결과를 바로 보여줄 수 있음
+   public String path(@PathVariable String uid, @PathVariable(required = false) Integer bid) {
+      bid = (bid == null) ? 0: bid;
+      return "<h1>uid=" + uid + ", bid=" + bid + "</h1>"; 
    }
 }
