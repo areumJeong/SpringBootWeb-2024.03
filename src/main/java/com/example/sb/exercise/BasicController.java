@@ -66,7 +66,7 @@ public class BasicController {
    }
    
    @PostMapping("/memberProc")
-   public String memberProc(member member, Model model) {
+   public String memberProc(Member member, Model model) {
       // syso 대신 사용
       log.info(member.toString());
       model.addAttribute("name", member.getName());

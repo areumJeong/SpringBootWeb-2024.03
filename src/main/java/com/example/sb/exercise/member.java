@@ -1,12 +1,12 @@
 package com.example.sb.exercise;
 
-public class member {
+public class Member {
 	private int mid;
 	private String name;
 	private int age;
 	
-	public member() { }
-	public member(int mid, String name, int age) {
+	public Member() { }
+	public Member(int mid, String name, int age) {
 		this.mid = mid;
 		this.name = name;
 		this.age = age;
